@@ -25,7 +25,7 @@ narrative content — are the exclusive property of **Michael Rios** unless othe
 These assets may **not** be copied, modified, redistributed, or used in any project, commercial or non‑commercial, without explicit written 
 permission from the owner.
 
-This restriction does not apply to third‑party assets included under their own licenses, which are documented in `LICENSES.txt`.
+This restriction does not apply to third‑party assets included under their own licenses, which are documented in `PROJECT_LICENSE.md`.
 
 ---
 
