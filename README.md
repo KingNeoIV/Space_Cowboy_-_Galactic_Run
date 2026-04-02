@@ -74,7 +74,7 @@ These documents define the vision, mechanics, world, and progression of the game
 ## 🛠️ Tech Stack
 
 - **C#**  
-- **MonoGame Framework**  
+- **Raylib Framework**  
 - **Custom engine architecture**  
 - **Modular, scalable design**  
 - **Fully commented codebase**  
