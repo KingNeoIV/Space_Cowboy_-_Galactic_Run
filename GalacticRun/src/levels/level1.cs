@@ -61,14 +61,14 @@ public class Level1
         // ------------------------------------------------------------
         // Each planet starts above the screen at different heights.
         // They scroll downward and reset when they exit the screen.
-        planetX  = screenWidth / 2 - planet.Width / 2;
-        planetY  = -200;
+        planetX  = screenWidth / 2 - planet.Width / 2; // Centered horizontally
+        planetY  = -300;
 
-        planet1X = screenWidth / 3;
+        planet1X = screenWidth / 1.5f - planet1.Width / 2; // Slightly to the right
         planet1Y = -500;
 
-        planet2X = screenWidth / 1.5f;
-        planet2Y = -800;
+        planet2X = screenWidth * 0.05f; // Far left
+        planet2Y = -700;
     }
 
     public void Update()
@@ -76,7 +76,7 @@ public class Level1
         // ------------------------------------------------------------
         // BACKGROUND SCROLLING
         // ------------------------------------------------------------
-        scrollY += 2f;
+        scrollY += 1f;
         if (scrollY >= screenHeight)
             scrollY = 0; // Loop the background seamlessly
 
@@ -86,19 +86,19 @@ public class Level1
         // Each planet scrolls at a different speed to simulate depth.
 
         // Foreground planet (fastest)
-        planetY += 3f;
+        planetY += 0.3f;
         if (planetY > screenHeight)
-            planetY = -300;
+            planetY = 0;
 
         // Mid‑distance planet
-        planet1Y += 2f;
+        planet1Y += 0.7f;
         if (planet1Y > screenHeight)
-            planet1Y = -400;
+            planet1Y = 0;
 
         // Far‑distance planet (slowest)
         planet2Y += 1f;
         if (planet2Y > screenHeight)
-            planet2Y = -600;
+            planet2Y = 0;
     }
 
     public void Draw()
