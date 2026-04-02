@@ -2,7 +2,8 @@
 ### A Space‑Western Hybrid Arcade Shooter
 
 **Space Cowboy: Galactic Run** is a fast‑paced hybrid action game inspired by **Galaga**, **Double Dragon**, and **Strider**.  
-Fly across the galaxy as a lone outlaw, blast through enemy fleets, board massive motherships, and fight on foot with plasma weapons and outlaw grit. This is the wild west — just colder, darker, and infinite.
+Fly across the galaxy as a lone outlaw, blast through enemy fleets, board massive motherships, and fight on foot with plasma 
+weapons and outlaw grit. This is the wild west — just colder, darker, and infinite.
 
 ---
 
