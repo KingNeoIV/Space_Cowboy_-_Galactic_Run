@@ -62,13 +62,13 @@ public class Level1
         // Each planet starts above the screen at different heights.
         // They scroll downward and reset when they exit the screen.
         planetX  = screenWidth / 2 - planet.Width / 2; // Centered horizontally
-        planetY  = -300;
+        planetY  = -800;
 
         planet1X = screenWidth / 1.5f - planet1.Width / 2; // Slightly to the right
-        planet1Y = -500;
+        planet1Y = -1200;
 
         planet2X = screenWidth * 0.05f; // Far left
-        planet2Y = -700;
+        planet2Y = -1000;
     }
 
     public void Update()
@@ -76,7 +76,7 @@ public class Level1
         // ------------------------------------------------------------
         // BACKGROUND SCROLLING
         // ------------------------------------------------------------
-        scrollY += 1f;
+        scrollY += 0.2f;
         if (scrollY >= screenHeight)
             scrollY = 0; // Loop the background seamlessly
 
@@ -86,19 +86,19 @@ public class Level1
         // Each planet scrolls at a different speed to simulate depth.
 
         // Foreground planet (fastest)
-        planetY += 0.3f;
+        planetY += 0.4f;
         if (planetY > screenHeight)
-            planetY = 0;
+            planetY = -800;
 
         // Mid‑distance planet
-        planet1Y += 0.7f;
+        planet1Y += 0.6f;
         if (planet1Y > screenHeight)
-            planet1Y = 0;
+            planet1Y = -1200;
 
         // Far‑distance planet (slowest)
-        planet2Y += 1f;
+        planet2Y += 0.4f;
         if (planet2Y > screenHeight)
-            planet2Y = 0;
+            planet2Y = -1000;
     }
 
     public void Draw()
@@ -126,11 +126,17 @@ public class Level1
             planet1,
             new Vector2(planet1X, planet1Y),
             0f,
-            1.4f, // scale factor
+            1.6f, // scale factor
             Color.White
         );
 
         // Foreground planet (largest, fastest)
-        Raylib.DrawTexture(planet, (int)planetX, (int)planetY, Color.White);
+        Raylib.DrawTextureEx(
+            planet,
+            new Vector2(planetX, planetY),
+            0f,
+            1.4f, // scale factor
+            Color.White
+        );
     }
 }
