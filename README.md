@@ -1,4 +1,10 @@
-[![Space Cowboy: Galactic Run — Early Preview](https://img.youtube.com/vi/BLHtp4koWAQ/0.jpg)](https://youtu.be/BLHtp4koWAQ)
+<p align="center">
+  <a href="https://youtu.be/BLHtp4koWAQ">
+    <img src="https://img.youtube.com/vi/BLHtp4koWAQ/0.jpg" 
+         alt="Space Cowboy: Galactic Run Preview" 
+         width="600">
+  </a>
+</p>
 
 # 🚀 SPACE COWBOY: GALACTIC RUN  
 ### A Space‑Western Hybrid Arcade Shooter
