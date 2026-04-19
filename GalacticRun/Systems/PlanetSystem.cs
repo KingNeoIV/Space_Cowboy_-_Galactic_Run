@@ -4,14 +4,14 @@ using GalacticRun.Core;
 
 namespace GalacticRun.Systems
 {
-    /// <summary>
-    /// Handles parallax planet rendering for Level 1.
-    ///
-    /// This system manages three planet layers positioned at different
-    /// depths and scrolling speeds to create a sense of depth and motion.
-    /// Each planet loops vertically once it scrolls past the bottom of
-    /// the screen, maintaining a continuous parallax effect.
-    /// </summary>
+    /*  
+        Handles parallax planet rendering for Level 1.
+
+        This system manages three planet layers positioned at different
+        depths and scrolling speeds to create a sense of depth and motion.
+        Each planet loops vertically once it scrolls past the bottom of
+        the screen, maintaining a continuous parallax effect.
+    */
     public class PlanetSystem
     {
         private readonly AssetLoader assets;
@@ -29,9 +29,7 @@ namespace GalacticRun.Systems
         private readonly int screenWidth;
         private readonly int screenHeight;
 
-        /// <summary>
-        /// Creates a new planet parallax system for the given screen size.
-        /// </summary>
+        // Creates a new planet parallax system for the given screen size.
         public PlanetSystem(AssetLoader assets, int screenWidth, int screenHeight)
         {
             this.assets = assets;
@@ -39,10 +37,10 @@ namespace GalacticRun.Systems
             this.screenHeight = screenHeight;
         }
 
-        /// <summary>
-        /// Loads planet textures and initializes their starting positions
-        /// above the visible screen area.
-        /// </summary>
+        /*  
+            Loads planet textures and initializes their starting positions
+            above the visible screen area.
+        */
         public void LoadContent()
         {
             planet  = assets.LoadTexture("assets/level/level_1/planet.png");
@@ -60,11 +58,12 @@ namespace GalacticRun.Systems
             planet2Y = -1000;
         }
 
-        /// <summary>
-        /// Updates vertical scrolling for each planet layer.
-        /// Each planet scrolls at a different speed to simulate depth.
-        /// When a planet moves off-screen, it resets above the screen.
-        /// </summary>
+        /*  
+            Updates vertical scrolling for each planet layer.
+
+            Each planet scrolls at a different speed to simulate depth.
+            When a planet moves off-screen, it resets above the screen.
+        */
         public void Update()
         {
             planetY += 0.4f;
@@ -80,11 +79,12 @@ namespace GalacticRun.Systems
                 planet2Y = -1000;
         }
 
-        /// <summary>
-        /// Draws the planet layers in depth order:
-        /// farthest (planet2), mid (planet1), closest (planet).
-        /// Scaling is applied to reinforce depth perception.
-        /// </summary>
+        /*  
+            Draws the planet layers in depth order:
+            farthest (planet2), mid (planet1), closest (planet).
+
+            Scaling is applied to reinforce depth perception.
+        */
         public void Draw()
         {
             // Farthest planet
@@ -109,9 +109,7 @@ namespace GalacticRun.Systems
             );
         }
 
-        /// <summary>
-        /// Unloads planet textures. Most cleanup is handled by AssetLoader.
-        /// </summary>
+        // Unloads planet textures.
         public void UnloadContent() { }
     }
 }
