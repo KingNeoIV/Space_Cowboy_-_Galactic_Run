@@ -2,15 +2,15 @@ using Raylib_cs;
 
 namespace GalacticRun.Core
 {
-    /// <summary>
-    /// Core game controller responsible for initializing the window,
-    /// managing global services, handling the screen stack, and running
-    /// the main update/draw loop.
-    ///
-    /// The Game class acts as the central entry point for engine-level
-    /// behavior, while individual screens encapsulate gameplay, menus,
-    /// and UI logic.
-    /// </summary>
+    /*  
+        Core game controller responsible for initializing the window,
+        managing global services, handling the screen stack, and running
+        the main update/draw loop.
+
+        The Game class acts as the central entry point for engine-level
+        behavior, while individual screens encapsulate gameplay, menus,
+        and UI logic.
+    */
     public class Game
     {
         // Manages active screens (Main Menu, Gameplay, Pause, etc.)
@@ -25,21 +25,19 @@ namespace GalacticRun.Core
         // Flag used to request a clean shutdown from any screen.
         private bool exitRequested = false;
 
-        /// <summary>
-        /// Allows screens or systems to request a controlled exit.
-        /// The main loop will terminate on the next iteration.
-        /// </summary>
+        // Allows screens or systems to request a controlled exit.
         public void RequestExit()
         {
             exitRequested = true;
         }
 
-        /// <summary>
-        /// Initializes the game window, registers core services,
-        /// loads the initial screen, and runs the main game loop.
-        /// Handles fullscreen setup, update/draw sequencing,
-        /// and final cleanup on shutdown.
-        /// </summary>
+        /*  
+            Initializes the game window, registers core services,
+            loads the initial screen, and runs the main game loop.
+
+            Handles fullscreen setup, update/draw sequencing,
+            and final cleanup on shutdown.
+        */
         public void Run()
         {
             int screenWidth = 1920;
