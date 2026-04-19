@@ -3,13 +3,13 @@ using System.Numerics;
 
 namespace GalacticRun.Entities
 {
-    /// <summary>
-    /// Represents the player-controlled ship/entity.
-    ///
-    /// Handles movement, animation state, and rendering. The Player
-    /// updates based on keyboard input (WASD) and switches between
-    /// idle and movement animation frames depending on motion.
-    /// </summary>
+    /*  
+        Represents the player-controlled ship/entity.
+
+        Handles movement, animation state, and rendering. The Player updates
+        based on keyboard input (WASD) and switches between idle and movement
+        animation frames depending on motion.
+    */
     public class Player
     {
         // Idle texture shown when the player is not moving.
@@ -33,9 +33,7 @@ namespace GalacticRun.Entities
         private int screenWidth;
         private int screenHeight;
 
-        /// <summary>
-        /// Creates a new Player instance with idle and movement frames.
-        /// </summary>
+        // Creates a new Player instance with idle and movement frames.
         public Player(Texture2D idle, Texture2D[] moveFrames, Vector2 startPos, int screenWidth, int screenHeight)
         {
             this.idleFrame = idle;
@@ -46,9 +44,10 @@ namespace GalacticRun.Entities
             this.screenHeight = screenHeight;
         }
 
-        /// <summary>
-        /// Updates player movement, animation, and clamps position to screen bounds.
-        /// </summary>
+        /*  
+            Updates player movement, animation, and clamps position
+            to screen bounds.
+        */
         public void Update(float dt)
         {
             Vector2 move = Vector2.Zero;
@@ -73,6 +72,7 @@ namespace GalacticRun.Entities
                 {
                     frameTimer = 0f;
                     currentFrame++;
+
                     if (currentFrame >= moveFrames.Length)
                         currentFrame = 0;
                 }
@@ -88,9 +88,7 @@ namespace GalacticRun.Entities
             Position.Y = Math.Clamp(Position.Y, 0, screenHeight - idleFrame.Height);
         }
 
-        /// <summary>
-        /// Draws the current animation frame at the player's position.
-        /// </summary>
+        // Draws the current animation frame at the player's position.
         public void Draw()
         {
             Texture2D frame = (currentFrame == 0)
