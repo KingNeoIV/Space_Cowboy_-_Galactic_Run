@@ -4,14 +4,14 @@ using GalacticRun.Core;
 
 namespace GalacticRun.Screens
 {
-    /// <summary>
-    /// Modal pause menu overlay.
-    ///
-    /// Displays a dimmed background, a centered pause window, and
-    /// interactive buttons for resuming the game or exiting the
-    /// application. This screen sits on top of the gameplay screen
-    /// and blocks updates/draws beneath it.
-    /// </summary>
+    /*  
+        Modal pause menu overlay.
+
+        Displays a dimmed background, a centered pause window, and
+        interactive buttons for resuming the game or exiting the
+        application. This screen sits on top of the gameplay screen
+        and blocks updates/draws beneath it.
+    */
     public class PauseMenuScreen : IScreen
     {
         private readonly ServiceProvider services;
@@ -34,9 +34,7 @@ namespace GalacticRun.Screens
         private Rectangle playRect;
         private Rectangle exitRect;
 
-        /// <summary>
-        /// Creates a new pause menu overlay.
-        /// </summary>
+        // Creates a new pause menu overlay.
         public PauseMenuScreen(int width, int height, ServiceProvider services)
         {
             this.screenWidth = width;
@@ -44,17 +42,14 @@ namespace GalacticRun.Screens
             this.services = services;
         }
 
-        /// <summary>
-        /// Called once before content is loaded.
-        /// Currently unused but reserved for future logic.
-        /// </summary>
+        // Called once before content is loaded.
         public void Initialize()
         {
         }
 
-        /// <summary>
-        /// Loads pause menu textures and calculates UI layout positions.
-        /// </summary>
+        /*  
+            Loads pause menu textures and calculates UI layout positions.
+        */
         public void LoadContent()
         {
             windowPanel = Raylib.LoadTexture("assets/ui/esc_menu/Window.png");
@@ -91,9 +86,9 @@ namespace GalacticRun.Screens
             exitRect = new Rectangle(exitPos.X, exitPos.Y, exitBtn.Width, exitBtn.Height);
         }
 
-        /// <summary>
-        /// Handles button clicks and ESC key to resume or exit the game.
-        /// </summary>
+        /*  
+            Handles button clicks and ESC key to resume or exit the game.
+        */
         public void Update()
         {
             Vector2 mouse = Raylib.GetMousePosition();
@@ -122,10 +117,11 @@ namespace GalacticRun.Screens
             }
         }
 
-        /// <summary>
-        /// Draws the dimmed overlay, pause window, header, and buttons.
-        /// Hovered buttons brighten for visual feedback.
-        /// </summary>
+        /*  
+            Draws the dimmed overlay, pause window, header, and buttons.
+
+            Hovered buttons brighten for visual feedback.
+        */
         public void Draw()
         {
             Vector2 mouse = Raylib.GetMousePosition();
@@ -148,10 +144,7 @@ namespace GalacticRun.Screens
             Raylib.DrawTexture(exitBtn, (int)exitPos.X, (int)exitPos.Y, exitColor);
         }
 
-        /// <summary>
-        /// Unloads pause menu content.
-        /// Most cleanup is handled by the AssetLoader.
-        /// </summary>
+        // Unloads pause menu content.
         public void UnloadContent()
         {
         }
