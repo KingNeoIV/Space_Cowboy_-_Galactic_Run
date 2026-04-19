@@ -4,14 +4,14 @@ using GalacticRun.Core;
 
 namespace GalacticRun.Screens
 {
-    /// <summary>
-    /// Main menu screen for Galactic Run.
-    ///
-    /// Handles loading UI assets, positioning interactive buttons,
-    /// detecting hover/click input, and transitioning into gameplay
-    /// or exiting the application. This screen represents the first
-    /// user-facing interface of the game.
-    /// </summary>
+    /*  
+        Main menu screen for Galactic Run.
+
+        Handles loading UI assets, positioning interactive buttons,
+        detecting hover/click input, and transitioning into gameplay
+        or exiting the application. This screen represents the first
+        user-facing interface of the game.
+    */
     public class MainMenuScreen : IScreen
     {
         private readonly ServiceProvider services;
@@ -32,9 +32,7 @@ namespace GalacticRun.Screens
         private bool startHover = false;
         private bool exitHover = false;
 
-        /// <summary>
-        /// Creates a new main menu screen with the given dimensions and services.
-        /// </summary>
+        // Creates a new main menu screen with the given dimensions and services.
         public MainMenuScreen(int width, int height, ServiceProvider services)
         {
             this.screenWidth = width;
@@ -42,10 +40,7 @@ namespace GalacticRun.Screens
             this.services = services;
         }
 
-        /// <summary>
-        /// Initializes button layout and hitboxes.
-        /// Called once before content is loaded.
-        /// </summary>
+        // Initializes button layout and hitboxes.
         public void Initialize()
         {
             float btnWidth = 300;
@@ -66,9 +61,7 @@ namespace GalacticRun.Screens
             );
         }
 
-        /// <summary>
-        /// Loads all textures required for the main menu UI.
-        /// </summary>
+        // Loads all textures required for the main menu UI.
         public void LoadContent()
         {
             var assets = services.Get<AssetLoader>();
@@ -79,10 +72,11 @@ namespace GalacticRun.Screens
             exitBtn    = assets.LoadTexture("assets/ui/main_menu/Exit_BTN.png");
         }
 
-        /// <summary>
-        /// Handles mouse hover and click interactions.
-        /// Starts the game or exits the application based on user input.
-        /// </summary>
+        /*  
+            Handles mouse hover and click interactions.
+
+            Starts the game or exits the application based on user input.
+        */
         public void Update()
         {
             Vector2 mouse = Raylib.GetMousePosition();
@@ -104,10 +98,7 @@ namespace GalacticRun.Screens
             }
         }
 
-        /// <summary>
-        /// Draws the main menu background, title, and interactive buttons.
-        /// Hovered buttons are tinted for visual feedback.
-        /// </summary>
+        // Draws the main menu background, title, and interactive buttons.
         public void Draw()
         {
             Raylib.DrawTexture(background, 0, 0, Color.White);
@@ -140,10 +131,7 @@ namespace GalacticRun.Screens
             );
         }
 
-        /// <summary>
-        /// Unloads menu-specific content.
-        /// Most cleanup is handled by the AssetLoader.
-        /// </summary>
+        // Unloads menu-specific content.
         public void UnloadContent()
         {
         }
