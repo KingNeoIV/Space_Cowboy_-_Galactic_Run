@@ -4,14 +4,14 @@ using GalacticRun.Core;
 
 namespace GalacticRun.Systems
 {
-    /// <summary>
-    /// Handles infinite vertical scrolling of the level background.
-    ///
-    /// This system draws two stacked copies of the background texture and
-    /// moves them downward over time to create a seamless "flying through
-    /// space" effect. Once the scroll offset exceeds the screen height,
-    /// it wraps back to zero to maintain continuous motion.
-    /// </summary>
+    /*  
+        Handles infinite vertical scrolling of the level background.
+
+        This system draws two stacked copies of the background texture and
+        moves them downward over time to create a seamless "flying through
+        space" effect. Once the scroll offset exceeds the screen height,
+        it wraps back to zero to maintain continuous motion.
+    */
     public class BackgroundScroller
     {
         private readonly AssetLoader assets;
@@ -24,9 +24,7 @@ namespace GalacticRun.Systems
         private int screenWidth;
         private int screenHeight;
 
-        /// <summary>
-        /// Creates a new background scroller for the given screen size.
-        /// </summary>
+        // Creates a new background scroller for the given screen size.
         public BackgroundScroller(AssetLoader assets, int screenWidth, int screenHeight)
         {
             this.assets = assets;
@@ -34,18 +32,17 @@ namespace GalacticRun.Systems
             this.screenHeight = screenHeight;
         }
 
-        /// <summary>
-        /// Loads the background texture used for the scrolling effect.
-        /// </summary>
+        // Loads the background texture used for the scrolling effect.
         public void LoadContent()
         {
             background = assets.LoadTexture("assets/level/level_1/background.png");
         }
 
-        /// <summary>
-        /// Updates the scroll offset to move the background downward.
-        /// Wraps back to zero when the texture has fully scrolled off-screen.
-        /// </summary>
+        /*  
+            Updates the scroll offset to move the background downward.
+
+            Wraps back to zero when the texture has fully scrolled off-screen.
+        */
         public void Update()
         {
             scrollY += 0.2f;
@@ -54,11 +51,11 @@ namespace GalacticRun.Systems
                 scrollY = 0f;
         }
 
-        /// <summary>
-        /// Draws two copies of the background texture to create a seamless
-        /// infinite scrolling effect. One is drawn at the current offset,
-        /// and the second is drawn directly above it.
-        /// </summary>
+        /*  
+            Draws two copies of the background texture to create a seamless
+            infinite scrolling effect. One is drawn at the current offset,
+            and the second is drawn directly above it.
+        */
         public void Draw()
         {
             Rectangle src = new Rectangle(0, 0, background.Width, background.Height);
@@ -81,9 +78,7 @@ namespace GalacticRun.Systems
             Raylib.DrawTexturePro(background, src, dest2, Vector2.Zero, 0f, Color.White);
         }
 
-        /// <summary>
-        /// Unloads background content. Most cleanup is handled by AssetLoader.
-        /// </summary>
+        // Unloads background content.
         public void UnloadContent() { }
     }
 }
