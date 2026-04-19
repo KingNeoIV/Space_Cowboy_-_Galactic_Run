@@ -2,13 +2,13 @@
 
 namespace GalacticRun
 {
-    /// <summary>
-    /// Application entry point for Galactic Run.
-    ///
-    /// Initializes the main Game instance and starts the primary
-    /// game loop. This class is intentionally minimal to keep all
-    /// engine and gameplay logic encapsulated within the Game class.
-    /// </summary>
+    /*  
+        Application entry point for Galactic Run.
+
+        Initializes the main Game instance and starts the primary
+        game loop. This class is intentionally minimal to keep all
+        engine and gameplay logic encapsulated within the Game class.
+    */
     public static class Program
     {
         public static void Main()
