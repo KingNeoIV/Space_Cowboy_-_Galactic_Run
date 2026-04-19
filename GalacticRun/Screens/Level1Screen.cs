@@ -6,14 +6,14 @@ using GalacticRun.Entities;
 
 namespace GalacticRun.Screens
 {
-    /// <summary>
-    /// Primary gameplay screen for Level 1.
-    ///
-    /// Responsible for loading level systems (background, planets,
-    /// parallax), initializing the player, updating gameplay logic,
-    /// and rendering all level elements. This screen represents the
-    /// active gameplay state and can be paused via the PauseMenuScreen.
-    /// </summary>
+    /*  
+        Primary gameplay screen for Level 1.
+
+        Responsible for loading level systems (background, planets,
+        parallax), initializing the player, updating gameplay logic,
+        and rendering all level elements. This screen represents the
+        active gameplay state and can be paused via the PauseMenuScreen.
+    */
     public class Level1Screen : IScreen
     {
         // Player instance created during content loading.
@@ -33,9 +33,7 @@ namespace GalacticRun.Screens
         private PlanetSystem? planets;
         private ParallaxSystem? parallax;
 
-        /// <summary>
-        /// Creates a new Level 1 gameplay screen.
-        /// </summary>
+        // Creates a new Level 1 gameplay screen.
         public Level1Screen(int width, int height, ServiceProvider services)
         {
             this.screenWidth = width;
@@ -43,26 +41,22 @@ namespace GalacticRun.Screens
             this.services = services;
         }
 
-        /// <summary>
-        /// Called once when the screen is created.
-        /// Currently unused but reserved for future initialization logic.
-        /// </summary>
+        // Called once when the screen is created.
         public void Initialize()
         {
             // Nothing needed here yet
         }
 
-        /// <summary>
-        /// Loads all assets and systems required for Level 1.
-        /// Initializes background layers, parallax effects, and the player.
-        /// </summary>
+        /*  
+            Loads all assets and systems required for Level 1.
+
+            Initializes background layers, parallax effects, and the player.
+        */
         public void LoadContent()
         {
             var assets = services.Get<AssetLoader>();
 
-            // ------------------------------
             // Load Level Systems
-            // ------------------------------
             background = new BackgroundScroller(assets, screenWidth, screenHeight);
             planets    = new PlanetSystem(assets, screenWidth, screenHeight);
             parallax   = new ParallaxSystem(background, planets);
@@ -71,9 +65,7 @@ namespace GalacticRun.Screens
             planets.LoadContent();
             parallax.LoadContent();
 
-            // ------------------------------
             // Load Player Assets
-            // ------------------------------
             idleFrame = assets.LoadTexture("assets/player/Idle.png");
 
             moveFrames = new Texture2D[]
@@ -86,9 +78,7 @@ namespace GalacticRun.Screens
                 assets.LoadTexture("assets/player/Move6.png")
             };
 
-            // ------------------------------
             // Create Player
-            // ------------------------------
             player = new Player(
                 idleFrame,
                 moveFrames,
@@ -101,10 +91,11 @@ namespace GalacticRun.Screens
             );
         }
 
-        /// <summary>
-        /// Updates gameplay logic once per frame.
-        /// Handles pause input, parallax motion, and player movement.
-        /// </summary>
+        /*  
+            Updates gameplay logic once per frame.
+
+            Handles pause input, parallax motion, and player movement.
+        */
         public void Update()
         {
             // Pause the game and push the pause menu screen.
@@ -121,20 +112,17 @@ namespace GalacticRun.Screens
             player.Update(dt);
         }
 
-        /// <summary>
-        /// Draws all level elements in the correct order:
-        /// background → parallax layers → player.
-        /// </summary>
+        /*  
+            Draws all level elements in the correct order:
+            background → parallax layers → player.
+        */
         public void Draw()
         {
             parallax!.Draw();
             player.Draw();
         }
 
-        /// <summary>
-        /// Unloads level-specific content.
-        /// Most cleanup is handled by the AssetLoader.
-        /// </summary>
+        // Unloads level-specific content.
         public void UnloadContent()
         {
             // AssetLoader handles unloading
