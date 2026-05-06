@@ -1,3 +1,8 @@
 # Build output
 bin/
 obj/
+
+# design files
+design\Gameplay_Design.md
+design\Level_Design.md
+design\Player_Enemies.md
